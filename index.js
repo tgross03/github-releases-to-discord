@@ -147,7 +147,7 @@ async function run () {
         footer: {}
     }
 
-    if (footerTitle != '') embedMsg.footer.text = limit(footerTitle, 2048);
+    if (footerTitle != '') embedMsg.footer.text = limit(tag, 2048);
     if (footerIconUrl != '') embedMsg.footer.icon_url = footerIconUrl;
     if (footerTimestamp == 'true') embedMsg.timestamp = new Date().toISOString();
 
