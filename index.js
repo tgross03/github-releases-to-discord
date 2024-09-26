@@ -89,7 +89,7 @@ function getContext () {
         body: payload.release.body,
         name: payload.release.name,
         html_url: payload.release.html_url,
-        tag: payload.release.tag
+        tag: payload.release.tag_name
     }
 }
 
