@@ -88,7 +88,8 @@ function getContext () {
     return {
         body: payload.release.body,
         name: payload.release.name,
-        html_url: payload.release.html_url
+        html_url: payload.release.html_url,
+        tag: payload.release.tag
     }
 }
 
@@ -134,13 +135,13 @@ async function run () {
 
     if (!webhookUrl) return core.setFailed('webhook_url not set. Please set it.');
 
-    const {body, html_url, name} = getContext();
+    const {body, html_url, name, tag} = getContext();
 
     const description = formatDescription(body);
 
     let embedMsg = {
-        title: limit(name, 256),
-        url: html_url,
+        title: limit(tag + ' | ' + name, 256),
+        //url: html_url,
         color: color,
         description: description,
         footer: {}
